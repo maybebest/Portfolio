@@ -31,9 +31,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     password = factory.PostGenerationMethodCall('set_password', 'admin')
     is_active = True
     is_superuser = False
-    #role = User.APP_USER
     role = User.APP_USER
-    #company = factory.SubFactory(CompanyFactory)
 
 
 class CountryFactory(factory.django.DjangoModelFactory):
@@ -97,8 +95,6 @@ class ProductAttributeFactory(factory.django.DjangoModelFactory):
 
     title = factory.Sequence(lambda n: "Attribute_{0}".format(n))
     is_custom = False
-    #measurements = factory.SubFactory(ProductMeasurementGroupFactory)
-    #measurement_items = factory.SubFactory(ProductMeasurementFactory)
 
     @factory.post_generation
     def measurements(self, create, extracted, **kwargs):
@@ -125,7 +121,6 @@ class ProductFactory(factory.django.DjangoModelFactory):
         model = Product
 
     title = factory.Sequence(lambda n: "Product_{0}".format(n))
-    #attributes = factory.SubFactory(ProductAttributeFactory)
 
     category = factory.SubFactory(CategoryFactory)
 

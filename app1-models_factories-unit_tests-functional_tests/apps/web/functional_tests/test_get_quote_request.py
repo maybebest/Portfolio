@@ -42,7 +42,7 @@ class TestNew(SeleniumBaseClass):
             for attribute in product.attributes.all():
                 nlp_rule, _ = NLPProductAttribute.objects.get_or_create(product=product, attribute=attribute)
                 nlp_rule.nlp_rules()
-
+	# Check that all models initialized correctly without unwanted instances
         print(Measurement.objects.all())
         print(Company.objects.all())
         print(Category.objects.all())
